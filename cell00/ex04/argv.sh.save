@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# เช็คว่ามี argument หรือไม่
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied"
+    exit 0
+fi
+
+# แสดง argument ทีละบรรทัด (สูงสุด 3 ตัว)
+echo "$1"
+echo "$2"
+echo "$3"
+
+exit 0
+
