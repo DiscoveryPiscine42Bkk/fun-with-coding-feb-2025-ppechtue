@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #ft_list {
+            width: 300px;
+            min-height: 50px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .todo {
+            background: #ffc107;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .todo:hover {
+            background: #ff9800;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="newTask">New</button>
+    <div id="ft_list"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let ftList = document.getElementById("ft_list");
+            let newTaskBtn = document.getElementById("newTask");
+
+            // โหลดรายการจาก Cookies
+            function loadTasks() {
+                let tasks = getCookie("todo_list");
+                if (tasks) {
+                    let taskArray = JSON.parse(tasks);
+                    taskArray.forEach(task => addTask(task));
+                }
+            }
+
+            // เพิ่มรายการ To-Do
+            function addTask(taskText) {
+                let taskDiv = document.createElement("div");
+                taskDiv.className = "todo";
+                taskDiv.innerText = taskText;
+
+                // กด To-Do เพื่อลบ
+                taskDiv.addEventListener("click", function () {
+                    if (confirm("Do you want to remove this task?")) {
+                        taskDiv.remove();
+                        saveTasks();
+                    }
+                });
+
+                // เพิ่ม To-Do ไปไว้ด้านบนสุด
+                ftList.insertBefore(taskDiv, ftList.firstChild);
+                saveTasks();
+            }
+
+            // กดปุ่ม "New" เพื่อเพิ่มรายการ
+            newTaskBtn.addEventListener("click", function () {
+                let taskText = prompt("Enter a new task:");
+                if (taskText) addTask(taskText);
+            });
+
+            // บันทึก To-Do ลง Cookies
+            function saveTasks() {
+                let taskElements = document.querySelectorAll(".todo");
+                let taskArray = [];
+                taskElements.forEach(task => taskArray.push(task.innerText));
+                setCookie("todo_list", JSON.stringify(taskArray), 7);
+            }
+
+            // ฟังก์ชันจัดการ Cookies
+            function setCookie(name, value, days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+            }
+
+            function getCookie(name) {
+                let decodedCookies = decodeURIComponent(document.cookie);
+                let cookieArray = decodedCookies.split(';');
+                for (let i = 0; i < cookieArray.length; i++) {
+                    let cookie = cookieArray[i].trim();
+                    if (cookie.indexOf(name + "=") === 0) {
+                        return cookie.substring(name.length + 1);
+                    }
+                }
+                return "";
+            }
+
+            // โหลดรายการ To-Do ตอนเปิดหน้าเว็บ
+            loadTasks();
+        });
+    </script>
+
+</body>
+</html>
