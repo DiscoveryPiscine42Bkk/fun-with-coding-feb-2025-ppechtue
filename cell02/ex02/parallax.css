@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.parallax {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.bg1 {
+    background-image: url('https://travel.mthai.com/app/uploads/2014/07/%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%97%E0%B8%B4%E0%B8%A7%E0%B8%97%E0%B8%B1%E0%B8%A8%E0%B8%99%E0%B9%8C%E0%B8%AA%E0%B8%A7%E0%B8%A2%E0%B9%86-14.jpg');
+}
+
+.bg2 {
+    background-image: url('https://asset.japan.travel/image/upload/v1538550267/tottori/Tottori_1001.jpg');
+}
+
+.text {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.content {
+    height: 50vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+}
