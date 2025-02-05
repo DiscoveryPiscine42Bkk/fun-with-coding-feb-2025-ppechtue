@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background</title>
+    <link rel="stylesheet" href="backgroound.css">
+</head>
+<body>
+    <button id="changeColorBtn">Change Background</button>
+
+    <script>
+        document.getElementById('changeColorBtn').addEventListener('click', function () {
+            document.body.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
+        });
+    </script>
+</body>
+</html>
