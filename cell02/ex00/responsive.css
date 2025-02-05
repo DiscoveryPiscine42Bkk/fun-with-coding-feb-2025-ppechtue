@@ -13,9 +13,10 @@ th, td {
             font-size: 20px;
             border: 1px solid black;
 }
+}
 .first-cell {
-    background-color: rgb(235, 183, 135);
+    background-color: rgb(31, 186, 224);
 }
 .second-cell {
-    background-color: rgb(255, 210, 192);
+    background-color: rgb(91, 101, 192);
 }
