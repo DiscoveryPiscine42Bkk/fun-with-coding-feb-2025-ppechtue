@@ -1,0 +1,21 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    width: 10%;
+            padding: 50px;
+            text-align: left;
+            font-size: 20px;
+            border: 1px solid black;
+}
+.first-cell {
+    background-color: rgb(235, 183, 135);
+}
+.second-cell {
+    background-color: rgb(255, 210, 192);
+}
