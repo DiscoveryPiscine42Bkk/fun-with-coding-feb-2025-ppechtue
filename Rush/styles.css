@@ -1,0 +1,133 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 60px; /* ปรับให้มีที่ว่างสำหรับ navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}
+
+h1, h2, h5 {
+    font-weight: 600;
+}
+
+p {
+    font-weight: 300;
+}
+
+.navbar {
+    transition: all 0.3s;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-dark {
+    background-color: #242424 !important;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.profile-container {
+    display: flex;
+    gap: 20px;
+}
+
+.profile-box {
+    text-align: center;
+}
+
+.profile-box img {
+    width: 400px;
+    height: 500px;
+    border-radius: 10%;
+}
+.profile-box img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+.profile-box img:hover {
+    transform: scale(1.1);
+}
+footer {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 50px;
+    width: 100%;
+    text-align: center; /* จัดข้อความใน footer ให้อยู่ตรงกลาง */
+}
+/* ==== ปรับตำแหน่ง Social Icons ==== */
+.social-container {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    align-items: center;
+    flex-direction: column; /* ทำให้ไอคอนอยู่ใต้ข้อความ */
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* จัดไอคอนให้อยู่ตรงกลาง */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* เพิ่มระยะห่างระหว่างไอคอน */
+}
+
+.social-icons img {
+    width: 40px; /* ปรับขนาดไอคอน */
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Responsive: เมื่อจอเล็ก (< 768px) */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        flex-direction: row; /* ให้เรียงแนวนอน */
+    }
+}
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 150px;
+    padding: 10px 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}

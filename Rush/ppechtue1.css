@@ -1,0 +1,133 @@
+/* ===== ใช้ฟอนต์ Poppins ใน Body ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'IBM Plex Thai Text', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 60px; /* ปรับให้มีที่ว่างสำหรับ navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}
+
+/* ===== Typography ===== */
+h1, h2, h5 {
+    font-weight: 600;
+}
+
+p {
+    font-weight: 300;
+}
+
+/* ===== Layout Styling ===== */
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+.profile-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+.profile-box {
+    text-align: center;
+ 
+}
+.profile-box img {
+    width: 300px;
+    height: 400px;
+    border-radius: 10%;
+}
+
+/* ===== Projects Section ===== */
+.projects {
+    margin-top: 50px;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* กระจายข้อความและรูป */
+    gap: 50px; /* เพิ่มระยะห่างระหว่างข้อความและรูป */
+    padding: 20px;
+    border-bottom: 1px solid #ddd; /* เส้นแบ่งระหว่างแต่ละโปรเจ็กต์ */
+}
+
+.project img {
+    max-width: 250px; /* ปรับขนาดของรูป */
+    height: auto;
+    border-radius: 10px; /* ทำให้ขอบมน */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ดูสวยขึ้น */
+    transition: transform 0.3s ease;
+}
+
+/* ===== Footer Styling ===== */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+}
+.project img:hover {
+    transform: scale(1.9); /* ขยายเล็กน้อยเมื่อโฮเวอร์ */
+}
+.social-container {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    align-items: center;
+    flex-direction: column; /* ทำให้ไอคอนอยู่ใต้ข้อความ */
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* จัดไอคอนให้อยู่ตรงกลาง */
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* เพิ่มระยะห่างระหว่างไอคอน */
+}
+
+.icons img {
+    width: 40px; /* ปรับขนาดไอคอน */
+    transition: transform 0.3s ease;
+}
+
+.icons img:hover {
+    transform: scale(1.2);
+}
+
+/* ===== Responsive: เมื่อจอเล็ก (< 768px) ===== */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        flex-direction: row; /* ให้เรียงแนวนอน */
+    }
+}
