@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <input type="text" id="leftOperand" placeholder="Enter number">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="rightOperand" placeholder="Enter number">
+    <input type="submit" value="Try me!" id="calculateBtn">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        input, select {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#calculateBtn").click(function() {
+                const left = $("#leftOperand").val();
+                const right = $("#rightOperand").val();
+                const operator = $("#operator").val();
+
+                if (!/^[0-9]+$/.test(left) || !/^[0-9]+$/.test(right)) {
+                    alert("Error :(");
+                    return;
+                }
+
+                const num1 = parseInt(left, 10);
+                const num2 = parseInt(right, 10);
+
+                if ((operator === '/' || operator === '%') && num2 === 0) {
+                    alert("It’s over 9000!");
+                    console.log("It’s over 9000!");
+                    return;
+                }
+
+                let result;
+                switch (operator) {
+                    case '+': result = num1 + num2; break;
+                    case '-': result = num1 - num2; break;
+                    case '*' : result = num1 * num2; break;
+                    case '/': result = num1 / num2; break;
+                    case '%': result = num1 % num2; break;
+                }
+                alert(result);
+                console.log(result);
+            });
+
+            setInterval(() => {
+                alert("Please, use me...");
+            }, 30000);
+        });
+    </script>
+</body>
+</html>
